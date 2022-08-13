@@ -1,7 +1,7 @@
 name: ci-net-workflow
-on: [ push ]
+on: [push]
 jobs:
-  check-application:
+  check-application-ci:
     runs-on: ubuntu-latest
     steps:
       - name: Download
