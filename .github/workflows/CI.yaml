@@ -1,5 +1,8 @@
 name: ci-net-workflow
-on: [push]
+on:
+  pull_request:
+    branches:
+      - develop
 jobs:
   check-application-ci:
     runs-on: ubuntu-latest
