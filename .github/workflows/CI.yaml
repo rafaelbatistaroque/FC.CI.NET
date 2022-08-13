@@ -6,6 +6,9 @@ on:
 jobs:
   check-application-ci:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet_versions: [ '3.1.x', '5.0.x', '6.0.x' ]
     steps:
       - name: Download
         uses: actions/checkout@v3
@@ -13,7 +16,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: ${{matrix.dotnet_versions}}
 
       - name: Restore dependencies
         run: dotnet restore
