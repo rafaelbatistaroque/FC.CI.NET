@@ -1,10 +1,11 @@
-name: ci-net-workflow
+name: FC.CI.App-CI
 on:
+  #Quando ocorrer PR na branch develop e ocorrer alterações detro do path
   pull_request:
     branches:
       - develop
     paths:
-      - 'FC.CI.App/TesteDiretorio/**'
+      - 'FC.CI.App/**'
 jobs:
   check-application-ci:
     name: job-check with .NET ${{matrix.dotnet_versions}}
