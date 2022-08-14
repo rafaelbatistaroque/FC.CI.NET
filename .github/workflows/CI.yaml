@@ -3,6 +3,8 @@ on:
   pull_request:
     branches:
       - develop
+    paths:
+      - 'FC.CI.App/TesteDiretorio'
 jobs:
   check-application-ci:
     name: job-check with .NET ${{matrix.dotnet_versions}}
