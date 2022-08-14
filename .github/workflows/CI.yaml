@@ -5,7 +5,7 @@ on:
       - develop
 jobs:
   check-application-ci:
-    name: job-check
+    name: job-check with .NET ${{matrix.dotnet_versions}}
     runs-on: ubuntu-latest
     strategy:
       matrix:
