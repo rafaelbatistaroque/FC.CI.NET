@@ -51,7 +51,7 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Test
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -l trx
 #        run: dotnet test --no-build --verbosity normal
       
       - name: Build and analyze
