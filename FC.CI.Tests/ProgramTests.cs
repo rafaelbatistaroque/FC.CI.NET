@@ -17,7 +17,7 @@ namespace FC.CI.Tests
         {
             var result = CustomMath.Subtrair(20, 10);
             
-            Assert.Equal(11, result);
+            Assert.Equal(13, result);
         }
         
         [Fact]

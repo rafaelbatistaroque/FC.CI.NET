@@ -6,7 +6,7 @@ on:
       - develop
     paths:
       - 'FC.CI.App/**'
-      - 'FC.CI.App.Tests/**'
+      - 'FC.CI.Tests/**'
 jobs:
   check-application-ci:
     name: job-check with .NET ${{matrix.dotnet_versions}}
