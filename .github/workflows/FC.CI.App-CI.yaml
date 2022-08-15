@@ -15,7 +15,7 @@ jobs:
         dotnet_versions: [ '6.0.400', '6.0.303' ]
     steps:
       - name: Download
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
@@ -42,9 +42,7 @@ jobs:
 
       - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        run: |
-          New-Item -Path .\.sonar\scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+        run: dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
       - name: Build and analyze
         env:
