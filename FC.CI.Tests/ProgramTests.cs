@@ -25,7 +25,7 @@ namespace FC.CI.Tests
         {
             var result = CustomMath.Multiplicar(20, 10);
             
-            Assert.Equal(200, result);
+            Assert.Equal(201, result);
         }
         
         [Fact]
