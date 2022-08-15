@@ -6,7 +6,7 @@ on:
       - develop
     paths:
       - 'FC.CI.App/**'
-      - 'FC.CI.App.Tests/**'
+      - 'FC.CI.Tests/**'
 jobs:
   check-application-ci:
     name: job-check with .NET ${{matrix.dotnet_versions}}
@@ -47,6 +47,12 @@ jobs:
       
       - name: Restore dependencies
         run: dotnet restore
+      
+      - name: Build
+        run: dotnet build --no-restore
+      
+      - name: Test
+        run: dotnet test --no-build
       
       - name: Build and analyze
         env:
