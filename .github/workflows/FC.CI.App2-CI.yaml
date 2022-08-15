@@ -1,19 +1,16 @@
-name: FC.CI.App-CI
+name: FC.CI.App2-CI
 on:
   #Quando ocorrer PR na branch develop e ocorrer alterações detro do path
   pull_request:
     branches:
       - develop
     paths:
-      - 'FC.CI.App/Entities/**'
+      - 'FC.CI.App/UseCases/**'
       - 'FC.CI.Tests/**'
 jobs:
-  check-application-ci:
-    name: job-check with .NET ${{matrix.dotnet_versions}}
+  check-application-duplicate-ci:
+    name: job-check .NET
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet_versions: [ '6.0.400', '6.0.303' ]
     steps:
       - name: Download
         uses: actions/checkout@v3
@@ -21,7 +18,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: ${{matrix.dotnet_versions}}
+          dotnet-version: 6.0.x
 
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
