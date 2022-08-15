@@ -22,9 +22,6 @@ jobs:
         with:
           dotnet-version: ${{matrix.dotnet_versions}}
 
-      - name: Restore dependencies
-        run: dotnet restore
-
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
@@ -44,9 +41,12 @@ jobs:
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: pwsh
         run: |
-          New-Item -Path ./.sonar/scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
-
+          New-Item -Path .\.sonar\scanner -ItemType Directory
+          dotnet tool update dotnet-sonarscanner --version 5.7.2 --tool-path .\.sonar\scanner
+      
+      - name: Restore dependencies
+        run: dotnet restore
+        
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
