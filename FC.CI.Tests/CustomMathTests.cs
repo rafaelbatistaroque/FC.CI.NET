@@ -12,14 +12,14 @@ namespace FC.CI.Tests
             Assert.Equal(20, result);
         }
         
-        // [Fact]
-        // public void GivenSub_WhenPassingIntParameters_ThenEnsureReturnSumFromParameters()
-        // {
-        //     var result = CustomMath.Subtrair(20, 10);
-        //     
-        //     Assert.Equal(10, result);
-        // }
-        //
+        [Fact]
+        public void GivenSub_WhenPassingIntParameters_ThenEnsureReturnSumFromParameters()
+        {
+            var result = CustomMath.Subtrair(20, 10);
+            
+            Assert.Equal(10, result);
+        }
+        
         [Fact]
         public void GivenSDMult_WhenPassingIntParameters_ThenEnsureReturnSumFromParameters()
         {
