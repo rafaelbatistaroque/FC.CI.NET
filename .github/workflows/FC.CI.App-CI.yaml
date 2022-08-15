@@ -5,7 +5,7 @@ on:
     branches:
       - develop
     paths:
-      - 'FC.CI.App/Entities/**'
+      - 'FC.CI.App/**'
       - 'FC.CI.Tests/**'
 jobs:
   check-application-ci:
