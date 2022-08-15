@@ -49,6 +49,10 @@ jobs:
       
       - name: Build
         run: dotnet build --no-restore
+
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+#        run: dotnet test --no-build --verbosity normal
       
       - name: Build and analyze
         env:
@@ -57,8 +61,5 @@ jobs:
         shell: pwsh
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"rafaelbatistaroque_FC.CI.NET" /o:"batista-cursos-fullcycle" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -l trx
+            /p:CollectCoverage=true /p:CoverletOutputFormat=opencover -l trx
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-#          dotnet test --no-build --verbosity normal
-#      - name: Test
-#        run: dotnet test --no-build --verbosity normal
